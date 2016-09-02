@@ -1,0 +1,12 @@
+{
+	"name": "adapt-assLearning",
+	"version": "0.1.0",
+	"description": "An extension to add a list of associated learning to Assessment Results",
+	"main": "/js/adapt-assLearning.js",
+	"keywords": [
+		"adapt-plugin",
+		"adapt-extension"
+	],
+	"license": "GPL-3.0",
+	"homepage": "https://github.com/cgkineo/adapt-assLearning"
+}
