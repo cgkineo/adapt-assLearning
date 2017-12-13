@@ -1,7 +1,9 @@
 {{#if .}}
 <ul class="ass-learning">
-{{#each .}}
-	<li><a href="#/id/{{_id}}">{{title}}</a></li>
-{{/each}}
+	{{#each .}}
+	<li>
+		<a href="#/id/{{_id}}">{{title}}</a>
+	</li>
+	{{/each}}
 </ul>
 {{/if}}

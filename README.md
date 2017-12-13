@@ -10,7 +10,7 @@ An extension to add a list of associated learning to Assessment Results.
 	"c-05"
 ]
 ```
-* Add the reference `{{{assLearning}}}` to the text in the Assessment Results component. 
+* In the text for the Assessment Results component, add the reference `{{{_state.assLearning}}}` (or `{{{assLearning}}}` for Assessment Results pre-v2.1.1).
 * Copy the extension folder into the src > extensions directory and run an appropriate Grunt task.
 
 ## Usage

@@ -1,5 +1,5 @@
 define([
-	"coreJS/adapt",
+	"core/js/adapt",
 	"components/adapt-contrib-assessmentResults/js/adapt-contrib-assessmentResults"
 ], function(Adapt, AssessmentResults) {
 

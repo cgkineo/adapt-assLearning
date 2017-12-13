@@ -1,6 +1,9 @@
 {
 	"name": "adapt-assLearning",
-	"version": "0.1.0",
+	"version": "0.1.1",
+	"displayName": "Ass Learning",
+	"extension": "assLearning",
+	"targetAttribute": "_assLearning",
 	"description": "An extension to add a list of associated learning to Assessment Results",
 	"main": "/js/adapt-assLearning.js",
 	"keywords": [
