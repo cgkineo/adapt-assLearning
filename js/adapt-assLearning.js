@@ -4,10 +4,10 @@ define([
 ], function(Adapt, AssessmentResults) {
 
 	function overrideAssessmentResults() {
-		var setFeedback = AssessmentResults.prototype.setFeedback;
+		var setFeedbackText = AssessmentResults.model.prototype.setFeedbackText;
 
-		AssessmentResults.prototype.setFeedback = function(feedbackBand) {
-			var state = this.model.get("_state");
+		AssessmentResults.model.prototype.setFeedbackText = function() {
+			var state = this.get("_state");
 			var ids = [];
 			var data = [];
 
@@ -28,12 +28,12 @@ define([
 			for (var i = 0, j = ids.length; i < j; i++) {
 				var model = Adapt.findById(ids[i]);
 
-				if (model) data.push(model.attributes);
+				if (model) data.push(model.toJSON());
 			}
 
 			state.assLearning = Handlebars.templates.assLearning(data);
 
-			setFeedback.call(this, feedbackBand);
+			setFeedbackText.call(this);
 		};
 	}
 
