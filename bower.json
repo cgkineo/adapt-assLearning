@@ -1,8 +1,8 @@
 {
 	"name": "adapt-assLearning",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"framework": ">=2.1",
-	"displayName": "Ass Learning",
+	"displayName": "Associated Learning",
 	"extension": "assLearning",
 	"targetAttribute": "_assLearning",
 	"description": "An extension to add a list of associated learning to Assessment Results",
