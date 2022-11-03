@@ -1,7 +1,7 @@
 {
 	"name": "adapt-assLearning",
-	"version": "0.2.1",
-	"framework": ">=2.1",
+	"version": "1.0.0",
+	"framework": ">=5.8",
 	"displayName": "Associated Learning",
 	"extension": "assLearning",
 	"targetAttribute": "_assLearning",
@@ -14,6 +14,6 @@
 	"license": "GPL-3.0",
 	"homepage": "https://github.com/cgkineo/adapt-assLearning",
 	"pluginDependencies": {
-		"adapt-contrib-assessmentResults": ">=2.3.1"
+		"adapt-contrib-assessmentResults": ">=4.3.1"
 	}
 }

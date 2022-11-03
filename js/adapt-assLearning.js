@@ -1,42 +1,38 @@
-define([
-  'core/js/adapt',
-  'components/adapt-contrib-assessmentResults/js/adapt-contrib-assessmentResults'
-], function(Adapt, AssessmentResults) {
+import Adapt from 'core/js/adapt';
+import AssessmentResults from 'components/adapt-contrib-assessmentResults/js/adapt-contrib-assessmentResults';
 
-  function overrideAssessmentResults() {
-    const setFeedbackText = AssessmentResults.model.prototype.setFeedbackText;
+function overrideAssessmentResults() {
+  const setFeedbackText = AssessmentResults.model.prototype.setFeedbackText;
 
-    AssessmentResults.model.prototype.setFeedbackText = function() {
-      const state = this._state;
-      const ids = [];
-      const data = [];
+  AssessmentResults.model.prototype.setFeedbackText = function() {
+    const state = this._state;
+    const ids = [];
+    const data = [];
 
-      state.questionModels.each(function(question) {
-        if (question.get('_isCorrect')) return;
+    state.questionModels.each(function(question) {
+      if (question.get('_isCorrect')) return;
 
-        const assIds = question.get('_assLearning');
+      const assIds = question.get('_assLearning');
 
-        if (!assIds) return;
+      if (!assIds) return;
 
-        for (let i = 0, j = assIds.length; i < j; i++) {
-          const assId = assIds[i];
+      for (let i = 0, j = assIds.length; i < j; i++) {
+        const assId = assIds[i];
 
-          if (!_.contains(ids, assId)) ids.push(assId);
-        }
-      });
-
-      for (let i = 0, j = ids.length; i < j; i++) {
-        const model = Adapt.findById(ids[i]);
-
-        if (model) data.push(model.toJSON());
+        if (!_.contains(ids, assId)) ids.push(assId);
       }
+    });
 
-      state.assLearning = Handlebars.templates.assLearning(data);
+    for (let i = 0, j = ids.length; i < j; i++) {
+      const model = Adapt.findById(ids[i]);
 
-      setFeedbackText.call(this);
-    };
-  }
+      if (model) data.push(model.toJSON());
+    }
 
-  Adapt.once('app:dataReady', overrideAssessmentResults);
+    this.set('_assLearning', Handlebars.templates.assLearning(data));
 
-});
+    setFeedbackText.call(this);
+  };
+}
+
+Adapt.once('app:dataReady', overrideAssessmentResults);
