@@ -1,10 +1,12 @@
 {
 	"name": "adapt-assLearning",
-	"version": "0.2.1",
-	"framework": ">=2.1",
-	"displayName": "Associated Learning",
+	"version": "1.0.0",
+	"framework": ">=5.8",
+	"homepage": "https://github.com/cgkineo/adapt-assLearning",
+	"bugs": "https://github.com/cgkineo/adapt-assLearning/issues",
 	"extension": "assLearning",
 	"targetAttribute": "_assLearning",
+	"displayName": "Associated Learning",
 	"description": "An extension to add a list of associated learning to Assessment Results",
 	"main": "/js/adapt-assLearning.js",
 	"keywords": [
@@ -12,8 +14,7 @@
 		"adapt-extension"
 	],
 	"license": "GPL-3.0",
-	"homepage": "https://github.com/cgkineo/adapt-assLearning",
 	"pluginDependencies": {
-		"adapt-contrib-assessmentResults": ">=2.3.1"
+		"adapt-contrib-assessmentResults": ">=4.3.1"
 	}
 }
