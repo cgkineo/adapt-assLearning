@@ -1,42 +1,38 @@
-define([
-	"core/js/adapt",
-	"components/adapt-contrib-assessmentResults/js/adapt-contrib-assessmentResults"
-], function(Adapt, AssessmentResults) {
+import Adapt from 'core/js/adapt';
+import AssessmentResults from 'components/adapt-contrib-assessmentResults/js/adapt-contrib-assessmentResults';
 
-	function overrideAssessmentResults() {
-		var setFeedbackText = AssessmentResults.model.prototype.setFeedbackText;
+function overrideAssessmentResults() {
+  const setFeedbackText = AssessmentResults.model.prototype.setFeedbackText;
 
-		AssessmentResults.model.prototype.setFeedbackText = function() {
-			var state = this.get("_state");
-			var ids = [];
-			var data = [];
+  AssessmentResults.model.prototype.setFeedbackText = function() {
+    const state = this._state;
+    const ids = [];
+    const data = [];
 
-			state.questionModels.each(function(question) {
-				if (question.get("_isCorrect")) return;
+    state.questionModels.each(function(question) {
+      if (question.get('_isCorrect')) return;
 
-				var assIds = question.get("_assLearning");
+      const assIds = question.get('_assLearning');
 
-				if (!assIds) return;
+      if (!assIds) return;
 
-				for (var i = 0, j = assIds.length; i < j; i++) {
-					var assId = assIds[i];
+      for (let i = 0, j = assIds.length; i < j; i++) {
+        const assId = assIds[i];
 
-					if (!_.contains(ids, assId)) ids.push(assId);
-				}
-			});
+        if (!_.contains(ids, assId)) ids.push(assId);
+      }
+    });
 
-			for (var i = 0, j = ids.length; i < j; i++) {
-				var model = Adapt.findById(ids[i]);
+    for (let i = 0, j = ids.length; i < j; i++) {
+      const model = Adapt.findById(ids[i]);
 
-				if (model) data.push(model.toJSON());
-			}
+      if (model) data.push(model.toJSON());
+    }
 
-			state.assLearning = Handlebars.templates.assLearning(data);
+    this.set('_assLearning', Handlebars.templates.assLearning(data));
 
-			setFeedbackText.call(this);
-		};
-	}
+    setFeedbackText.call(this);
+  };
+}
 
-	Adapt.once("app:dataReady", overrideAssessmentResults);
-
-});
+Adapt.once('app:dataReady', overrideAssessmentResults);
