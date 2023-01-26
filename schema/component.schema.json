@@ -1,0 +1,21 @@
+{
+  "$anchor": "assLearning-component",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "$merge": {
+    "source": {
+      "$ref": "component"
+    },
+    "with": {
+      "properties": {
+        "_assLearning": {
+          "type": "array",
+          "title": "Associated Learning",
+          "description": "Associated learning is listed for incorrectly answered questions with linked IDs. In the body text for the Assessment Results component, add the reference `{{{_assLearning}}}`",
+          "default": [],
+          "_backboneForms": "List"
+        }
+      }
+    }
+  }
+}
