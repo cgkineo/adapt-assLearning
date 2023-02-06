@@ -1,6 +1,6 @@
 {
   "name": "adapt-assLearning",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "framework": ">=2.1",
   "displayName": "Associated Learning",
   "extension": "assLearning",
