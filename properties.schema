@@ -14,7 +14,7 @@
               "default": [],
               "legend": "Associated Learning",
               "inputType": "List",
-              "help": "List the IDs associated with the question"
+              "help": "Associated learning is listed for incorrectly answered questions with linked IDs. In the body text for the Assessment Results component, add the reference `{{{_assLearning}}}`"
             }
           }
         }
